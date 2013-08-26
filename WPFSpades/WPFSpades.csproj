@@ -102,7 +102,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlayingCardsCore\PlayingCards.csproj">
+    <ProjectReference Include="..\PlayingCards\PlayingCards.csproj">
       <Project>{4348C9CE-1476-4D53-BBD3-EF97C1289D51}</Project>
       <Name>PlayingCards</Name>
     </ProjectReference>
