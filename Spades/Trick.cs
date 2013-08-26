@@ -1,5 +1,5 @@
 ﻿using System;
-using PlayingCardsCore;
+using PlayingCards;
 
 namespace Spades
 {

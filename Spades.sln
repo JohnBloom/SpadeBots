@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spades", "Spades\Spades.csproj", "{7E5B4380-DEC9-4CFF-8A16-3B50D5484A62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFSpades", "Spades\WPFSpades.csproj", "{7E5B4380-DEC9-4CFF-8A16-3B50D5484A62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingCardsCore", "PlayingCardsCore\PlayingCardsCore.csproj", "{4348C9CE-1476-4D53-BBD3-EF97C1289D51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingCards", "PlayingCardsCore\PlayingCards.csproj", "{4348C9CE-1476-4D53-BBD3-EF97C1289D51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{9561E084-51F4-4ECD-8D63-95DC86E1B120}"
 EndProject

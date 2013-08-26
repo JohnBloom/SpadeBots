@@ -7,8 +7,8 @@
     <ProjectGuid>{4348C9CE-1476-4D53-BBD3-EF97C1289D51}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PlayingCardsCore</RootNamespace>
-    <AssemblyName>PlayingCardsCore</AssemblyName>
+    <RootNamespace>PlayingCards</RootNamespace>
+    <AssemblyName>PlayingCards</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

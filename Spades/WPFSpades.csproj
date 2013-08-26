@@ -7,8 +7,8 @@
     <ProjectGuid>{7E5B4380-DEC9-4CFF-8A16-3B50D5484A62}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Spades</RootNamespace>
-    <AssemblyName>Spades</AssemblyName>
+    <RootNamespace>WPFSpades</RootNamespace>
+    <AssemblyName>WPFSpades</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -102,9 +102,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlayingCardsCore\PlayingCardsCore.csproj">
+    <ProjectReference Include="..\PlayingCardsCore\PlayingCards.csproj">
       <Project>{4348C9CE-1476-4D53-BBD3-EF97C1289D51}</Project>
-      <Name>PlayingCardsCore</Name>
+      <Name>PlayingCards</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

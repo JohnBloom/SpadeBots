@@ -50,13 +50,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PlayingCardsCore\PlayingCardsCore.csproj">
+    <ProjectReference Include="..\PlayingCardsCore\PlayingCards.csproj">
       <Project>{4348c9ce-1476-4d53-bbd3-ef97c1289d51}</Project>
-      <Name>PlayingCardsCore</Name>
+      <Name>PlayingCards</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Spades\Spades.csproj">
+    <ProjectReference Include="..\Spades\WPFSpades.csproj">
       <Project>{7E5B4380-DEC9-4CFF-8A16-3B50D5484A62}</Project>
-      <Name>Spades</Name>
+      <Name>WPFSpades</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

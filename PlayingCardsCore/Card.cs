@@ -1,4 +1,4 @@
-﻿namespace PlayingCardsCore
+﻿namespace PlayingCards
 {
     public class Card
     {
