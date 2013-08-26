@@ -22,7 +22,7 @@ namespace Tests
         }
 
         [Test]
-        public void AceOfSpadesWinsTrickTest()
+        public void AllTrumpsGetWinningPlayerTest()
         {
             var trick = new Trick(new Hand());
             
@@ -37,12 +37,40 @@ namespace Tests
         }
 
         [Test]
-        public void TwoOfSpadesWinsTrickTest()
+        public void TrumpInGetWinningPlayerTest()
         {
             var trick = new Trick(new Hand());
             trick.PlayCard(PlayerOne, new Card() { Rank = Rank.Seven, Suit = Suit.Diamonds });
             trick.PlayCard(PlayerTwo, new Card() { Rank = Rank.Ten, Suit = Suit.Diamonds });
             trick.PlayCard(PlayerThree, new Card() { Rank = Rank.Two, Suit = Suit.Spades });
+            trick.PlayCard(PlayerFour, new Card() { Rank = Rank.Nine, Suit = Suit.Diamonds });
+
+            var winner = trick.GetWinningPlayer();
+
+            Assert.AreEqual(PlayerThree, winner);
+        }
+
+        [Test]
+        public void AllSameNonTrumpSuitGetWinningPlayerTest()
+        {
+            var trick = new Trick(new Hand());
+            trick.PlayCard(PlayerOne, new Card() { Rank = Rank.Seven, Suit = Suit.Diamonds });
+            trick.PlayCard(PlayerTwo, new Card() { Rank = Rank.Ten, Suit = Suit.Diamonds });
+            trick.PlayCard(PlayerThree, new Card() { Rank = Rank.Two, Suit = Suit.Diamonds });
+            trick.PlayCard(PlayerFour, new Card() { Rank = Rank.Nine, Suit = Suit.Diamonds });
+
+            var winner = trick.GetWinningPlayer();
+
+            Assert.AreEqual(PlayerTwo, winner);
+        }
+
+        [Test]
+        public void DifferentSuitsNoTrumpsGetWinningPlayerTest()
+        {
+            var trick = new Trick(new Hand());
+            trick.PlayCard(PlayerOne, new Card() { Rank = Rank.Seven, Suit = Suit.Clubs });
+            trick.PlayCard(PlayerTwo, new Card() { Rank = Rank.Ten, Suit = Suit.Hearts });
+            trick.PlayCard(PlayerThree, new Card() { Rank = Rank.Two, Suit = Suit.Clubs });
             trick.PlayCard(PlayerFour, new Card() { Rank = Rank.Nine, Suit = Suit.Diamonds });
 
             var winner = trick.GetWinningPlayer();

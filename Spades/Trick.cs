@@ -46,10 +46,11 @@ namespace Spades
                 return null;
             }
 
-            return PlayedCards.OrderBy(x => x.Value.Suit == Suit.Spades)
-                              .ThenBy(x=> x.Value.Suit == LeadSuit)
-                              //.ThenByDescending(x => x.Value.Rank)
-                              .Select(x=> x.Key)
+            var orderedList = PlayedCards.OrderByDescending(x => x.Value.Suit == Suit.Spades)
+                .ThenByDescending(x => x.Value.Suit == LeadSuit)
+                .ThenByDescending(x => (int) x.Value.Rank);
+
+            return orderedList.Select(x=> x.Key)
                               .First();
         }
     }
