@@ -45,6 +45,7 @@
     <Compile Include="DeckTests.cs" />
     <Compile Include="GameTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScoreSheetTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
