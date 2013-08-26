@@ -20,8 +20,6 @@ namespace Spades
         public IPlayer PlayerThree { get; set; }
         public IPlayer PlayerFour { get; set; }
 
-        
-
         public Game()
         {
             Deck = new Deck();
@@ -30,13 +28,11 @@ namespace Spades
 
         public void PlayGame()
         {
+            //Make up the teams
             MakeTeams();
-            PlayHand();
 
-            while(CheckForWinner() == false)
-            {
-                PlayHand();
-            }
+            //Play hands
+            PlayHands();
         }
 
         public void MakeTeams()
@@ -67,55 +63,18 @@ namespace Spades
             _dealer = PlayerOne;
         }
 
-
-        public void Deal()
+        public void PlayHands()
         {
-            if(_players == null)
+            while(CheckForWinner() == false)
             {
-                throw new Exception("You are dealing in a game where there are no players");
+                ChangeDealer();
+
+                var hand = new Hand(_players, Deck);
+
+                _hands.Add(hand);
+
+                RecordScores(hand);
             }
-
-
-            Deck.Shuffle();
-
-            for (int p = 0; p < 4; p++)
-            {
-                var player = _players[p];
-
-                var cards = new List<Card>();
-
-                for (int i = 0; i < 13; i++)
-                {                    
-                    var card = Deck.GetTopCard();
-                    cards.Add(card); 
-                }
-
-                player.ReceiveCards(cards);
-            }
-        }
-
-        public void PlayHand()
-        {
-            ChangeDealer();
-
-            Deal();
-
-            Deck.Shuffle();
-
-            var hand = new Hand();
-
-            hand.Bid = GetBids();
-
-            for (int i = 0; i < 13; i++)
-            {
-                //TODO The lead should change here based off of the person who took the trick
-                var trick = PlayTrick(hand);
-                hand.AddTrick(trick);
-            }
-
-            _hands.Add(hand);
-
-            RecordScores(hand);
         }
 
         public void ChangeDealer()
@@ -126,35 +85,6 @@ namespace Spades
             _players.Add(firstPlayer);
 
             _dealer = _players.First();
-        }
-
-        public Bid GetBids()
-        {
-            var info = new Bid();
-
-            foreach (var player in _players)
-            {
-                var bid = player.Bid(info);
-
-                if (player.Order == 1) info.PlayerOneBid = bid;
-                if (player.Order == 2) info.PlayerTwoBid = bid;
-                if (player.Order == 3) info.PlayerThreeBid = bid;
-                if (player.Order == 4) info.PlayerFourBid = bid;
-            }
-
-            return info;
-        }
-
-        public Trick PlayTrick(Hand hand)
-        {
-            var trick = new Trick(hand);
-
-            foreach (var player in _players)
-            {
-                player.PlayCard(trick);
-            }
-
-            return trick;
         }
 
         public void RecordScores(Hand hand)

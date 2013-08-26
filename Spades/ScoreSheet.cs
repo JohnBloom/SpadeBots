@@ -57,7 +57,7 @@
 
         public bool HasWinner()
         {
-            return TeamOnePoints > 500 || TeamTwoPoints > 500;
+            return (TeamOnePoints >= 500 || TeamTwoPoints >= 500) && (TeamOnePoints != TeamTwoPoints);
         }
     }
 }

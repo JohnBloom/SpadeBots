@@ -25,7 +25,7 @@ namespace Spades
         public Card PlayCard(Trick currentTrick)
         {
             //TODO Implement playing card logic
-            return _handOfCards.First(currentTrick.IsCardPlayable);
+            return _handOfCards.First(x=> currentTrick.IsCardPlayable(this, x));
         }
 
         public void ReceiveCards(List<Card> handOfCards)

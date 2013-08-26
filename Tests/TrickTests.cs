@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Collections.Generic;
+using NUnit.Framework;
 using PlayingCards;
 using Spades;
 
@@ -12,19 +13,29 @@ namespace Tests
         public IPlayer PlayerThree { get; set; }
         public IPlayer PlayerFour { get; set; }
 
+        public Deck Deck { get; set; }
+        public List<IPlayer> Players { get; set; }
+
         [TestFixtureSetUp]
         public void Setup()
         {
+            Players = new List<IPlayer>();
+
             PlayerOne = new DefaultPlayer(1);
             PlayerTwo = new DefaultPlayer(2);
             PlayerThree = new DefaultPlayer(3);
             PlayerFour = new DefaultPlayer(4);
+
+            Players.Add(PlayerOne);
+            Players.Add(PlayerTwo);
+            Players.Add(PlayerThree);
+            Players.Add(PlayerFour);
         }
 
         [Test]
         public void AllTrumpsGetWinningPlayerTest()
         {
-            var trick = new Trick(new Hand());
+            var trick = new Trick(new Hand(Players, Deck) { SpadesHaveBeenBroken = true });
             
             trick.PlayCard(PlayerTwo, new Card() { Rank = Rank.King, Suit = Suit.Spades });
             trick.PlayCard(PlayerThree, new Card() { Rank = Rank.Queen, Suit = Suit.Spades });
@@ -39,7 +50,7 @@ namespace Tests
         [Test]
         public void TrumpInGetWinningPlayerTest()
         {
-            var trick = new Trick(new Hand());
+            var trick = new Trick(new Hand(Players, Deck) { SpadesHaveBeenBroken = true});
             trick.PlayCard(PlayerOne, new Card() { Rank = Rank.Seven, Suit = Suit.Diamonds });
             trick.PlayCard(PlayerTwo, new Card() { Rank = Rank.Ten, Suit = Suit.Diamonds });
             trick.PlayCard(PlayerThree, new Card() { Rank = Rank.Two, Suit = Suit.Spades });
@@ -53,7 +64,7 @@ namespace Tests
         [Test]
         public void AllSameNonTrumpSuitGetWinningPlayerTest()
         {
-            var trick = new Trick(new Hand());
+            var trick = new Trick(new Hand(Players, Deck) { SpadesHaveBeenBroken = true });
             trick.PlayCard(PlayerOne, new Card() { Rank = Rank.Seven, Suit = Suit.Diamonds });
             trick.PlayCard(PlayerTwo, new Card() { Rank = Rank.Ten, Suit = Suit.Diamonds });
             trick.PlayCard(PlayerThree, new Card() { Rank = Rank.Two, Suit = Suit.Diamonds });
@@ -67,7 +78,7 @@ namespace Tests
         [Test]
         public void DifferentSuitsNoTrumpsGetWinningPlayerTest()
         {
-            var trick = new Trick(new Hand());
+            var trick = new Trick(new Hand(Players, Deck) { SpadesHaveBeenBroken = true });
             trick.PlayCard(PlayerOne, new Card() { Rank = Rank.Seven, Suit = Suit.Clubs });
             trick.PlayCard(PlayerTwo, new Card() { Rank = Rank.Ten, Suit = Suit.Hearts });
             trick.PlayCard(PlayerThree, new Card() { Rank = Rank.Two, Suit = Suit.Clubs });

@@ -18,9 +18,17 @@ namespace Spades
             PlayedCards = new Dictionary<IPlayer, Card>();
         }
 
+        public void PlayTrick()
+        {
+            foreach (var player in _hand.Players)
+            {
+                player.PlayCard(this);
+            }
+        }
+
         internal void PlayCard(IPlayer player, Card card)
         {
-            if(IsCardPlayable(card) == false)
+            if (IsCardPlayable(player, card) == false)
             {
                 throw new Exception(player.PlayerName + " is Cheating and playing cards that are not playable!");
             }
@@ -33,9 +41,10 @@ namespace Spades
             PlayedCards.Add(player, card);
         }
 
-        public bool IsCardPlayable(Card card)
+        public bool IsCardPlayable(IPlayer player, Card card)
         {
-            //TODO: Implement playable logic
+            if (card.Suit == Suit.Spades && _hand.SpadesHaveBeenBroken == false) return false; //And the player has a suit other than spades
+
             return true;
         }
 
