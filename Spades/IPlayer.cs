@@ -16,6 +16,6 @@ namespace Spades
 
         void ReceiveCards(List<Card> handOfCards);
 
-        int Bid(BidInfo bidInfo);
+        int Bid(Bid bidInfo);
     }
 }

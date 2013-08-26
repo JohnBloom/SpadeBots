@@ -11,7 +11,7 @@ namespace Spades
         public int TeamOneTrickCount { get { return _teamOneTrickCount; } }
         public int TeamTwoTrickCount { get { return _teamTwoTrickCount; } }
 
-        public BidInfo BidInfo { get; internal set; }
+        public Bid BidInfo { get; internal set; }
 
         
 

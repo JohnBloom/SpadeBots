@@ -33,7 +33,7 @@ namespace Spades
             _handOfCards = handOfCards;
         }
 
-        public int Bid(BidInfo bidInfo)
+        public int Bid(Bid bidInfo)
         {
             //TODO Implement Bidding logic
             return 2;

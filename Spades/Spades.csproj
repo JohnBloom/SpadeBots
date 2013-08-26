@@ -39,7 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BidInfo.cs" />
+    <Compile Include="Bid.cs" />
     <Compile Include="DefaultPlayer.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Hand.cs" />

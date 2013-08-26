@@ -128,9 +128,9 @@ namespace Spades
             _dealer = _players.First();
         }
 
-        public BidInfo GetBids()
+        public Bid GetBids()
         {
-            var info = new BidInfo();
+            var info = new Bid();
 
             foreach (var player in _players)
             {

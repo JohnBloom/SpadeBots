@@ -1,7 +1,6 @@
-﻿
-namespace Spades
+﻿namespace Spades
 {
-    public class BidInfo
+    public class Bid
     {
         public int PlayerOneBid { get; internal set; }
         public int PlayerTwoBid { get; internal set; }
