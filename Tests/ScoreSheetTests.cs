@@ -48,10 +48,8 @@ namespace Tests
 
             var score = new ScoreSheet();
             score.TeamOneBags = 9;
-
             score.ScoreHand(hand);
             
-
             Assert.AreEqual(-40, score.TeamOnePoints);
             Assert.AreEqual(0, score.TeamOneBags);
             
