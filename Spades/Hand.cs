@@ -5,13 +5,11 @@ namespace Spades
     public class Hand
     {
         private List<Trick> _tricks;
-        private int _teamOneTrickCount;
-        private int _teamTwoTrickCount;
 
-        public int TeamOneTrickCount { get { return _teamOneTrickCount; } }
-        public int TeamTwoTrickCount { get { return _teamTwoTrickCount; } }
+        public int TeamOneTrickCount { get; internal set; }
+        public int TeamTwoTrickCount { get; internal set; }
 
-        public Bid BidInfo { get; internal set; }
+        public Bid Bid { get; internal set; }
 
         
 

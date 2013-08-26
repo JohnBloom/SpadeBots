@@ -1,5 +1,8 @@
-﻿namespace Spades
+﻿using System.Runtime.CompilerServices;
+
+namespace Spades
 {
+    
     public class Bid
     {
         public int PlayerOneBid { get; internal set; }

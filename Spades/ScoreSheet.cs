@@ -2,67 +2,62 @@
 {
     public class ScoreSheet
     {
-        private int _teamOnePoints;
-        private int _teamTwoPoints;
-        private int _teamOneBags;
-        private int _teamTwoBags;
-
-        public int TeamOnePoints { get { return _teamOnePoints; } }
-        public int TeamTwoPoints { get { return _teamTwoPoints; } }
-
-        public int TeamOneBags { get { return _teamOneBags; } }
-        public int TeamTwoBags { get { return _teamTwoBags; } }
-
+        public int TeamOnePoints { get; internal set; }
+        public int TeamTwoPoints { get; internal set; }
+        
+        public int TeamOneBags { get; internal set; }
+        public int TeamTwoBags { get; internal set; }
+         
         internal void Clear()
         {
-            _teamOneBags = 0;
-            _teamOnePoints = 0;
-            _teamTwoBags = 0;
-            _teamTwoPoints = 0;
+            TeamOneBags = 0;
+            TeamOnePoints = 0;
+            TeamTwoBags = 0;
+            TeamTwoPoints = 0;
         }
 
         public void ScoreHand(Hand hand)
         {
             //TODO: Lots of duplication in this. Try to reduce
-            var teamOnePointsFromHand = (10*hand.BidInfo.TeamOneTotalBid);
-            var teamTwoPointsFromHand = (10 * hand.BidInfo.TeamTwoTotalBid);
+            var teamOnePointsFromHand = (10*hand.Bid.TeamOneTotalBid);
+            var teamTwoPointsFromHand = (10 * hand.Bid.TeamTwoTotalBid);
 
-            if (hand.BidInfo.TeamOneTotalBid < hand.TeamOneTrickCount)
+            if (hand.Bid.TeamOneTotalBid > hand.TeamOneTrickCount)
             {
-                _teamOnePoints -= teamOnePointsFromHand;
+                TeamOnePoints -= teamOnePointsFromHand;
             }
             else
             {
-                _teamOnePoints += teamOnePointsFromHand;
-                _teamOneBags += hand.BidInfo.TeamOneTotalBid - hand.TeamOneTrickCount;
+                TeamOnePoints += teamOnePointsFromHand;
+                TeamOneBags += (hand.TeamOneTrickCount - hand.Bid.TeamOneTotalBid);
             }
 
-            if (hand.BidInfo.TeamTwoTotalBid < hand.TeamTwoTrickCount)
+            if (hand.Bid.TeamTwoTotalBid > hand.TeamTwoTrickCount)
             {
-                _teamTwoPoints -= teamTwoPointsFromHand;
+                TeamTwoPoints -= teamTwoPointsFromHand;
             }
             else
             {
-                _teamTwoPoints += teamTwoPointsFromHand;
-                _teamTwoBags += hand.BidInfo.TeamTwoTotalBid - hand.TeamTwoTrickCount;
+                TeamTwoPoints += teamTwoPointsFromHand;
+                TeamTwoBags += (hand.TeamTwoTrickCount - hand.Bid.TeamTwoTotalBid);
             }
 
-            if(_teamOneBags >= 10)
+            if(TeamOneBags >= 10)
             {
-                _teamOnePoints -= 100;
-                _teamOneBags = 0;
+                TeamOnePoints -= 100;
+                TeamOneBags = 0;
             }
 
-            if(_teamTwoBags >= 10)
+            if(TeamTwoBags >= 10)
             {
-                _teamTwoPoints -= 100;
-                _teamTwoBags = 0;
+                TeamTwoPoints -= 100;
+                TeamTwoBags = 0;
             }
         }
 
         public bool HasWinner()
         {
-            return _teamOnePoints > 500 || _teamTwoPoints > 500;
+            return TeamOnePoints > 500 || TeamTwoPoints > 500;
         }
     }
 }

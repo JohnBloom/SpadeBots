@@ -104,7 +104,7 @@ namespace Spades
 
             var hand = new Hand();
 
-            hand.BidInfo = GetBids();
+            hand.Bid = GetBids();
 
             for (int i = 0; i < 13; i++)
             {
