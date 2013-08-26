@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayingCards", "PlayingCard
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFSpades", "WPFSpades\WPFSpades.csproj", "{7E5B4380-DEC9-4CFF-8A16-3B50D5484A62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spades", "Spades\Spades.csproj", "{728C2AF8-5087-41FD-92AC-CF9DF6275325}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{7E5B4380-DEC9-4CFF-8A16-3B50D5484A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E5B4380-DEC9-4CFF-8A16-3B50D5484A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E5B4380-DEC9-4CFF-8A16-3B50D5484A62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{728C2AF8-5087-41FD-92AC-CF9DF6275325}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{728C2AF8-5087-41FD-92AC-CF9DF6275325}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{728C2AF8-5087-41FD-92AC-CF9DF6275325}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{728C2AF8-5087-41FD-92AC-CF9DF6275325}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
