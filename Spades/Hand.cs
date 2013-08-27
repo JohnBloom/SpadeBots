@@ -11,16 +11,15 @@ namespace Spades
 
         internal List<Trick> Tricks;
 
-        public List<IPlayer> Players { get; internal set; }
+        public List<PlayerMetadata> Players { get; internal set; }
         
-
         public bool SpadesHaveBeenBroken { get; internal set; }
         public int TeamOneTrickCount { get; internal set; }
         public int TeamTwoTrickCount { get; internal set; }
 
         public Bid Bid { get; internal set; }
 
-        public Hand(List<IPlayer> players, Deck deck)
+        public Hand(List<PlayerMetadata> players, Deck deck)
         {
             _deck = deck;
             
@@ -59,14 +58,14 @@ namespace Spades
         {
             var info = new Bid();
 
-            foreach (var player in Players)
+            foreach (var playerMeta in Players)
             {
-                var bid = player.Bid(info);
+                var bid = playerMeta.Player.Bid(info);
 
-                if (player.Order == 1) info.PlayerOneBid = bid;
-                if (player.Order == 2) info.PlayerTwoBid = bid;
-                if (player.Order == 3) info.PlayerThreeBid = bid;
-                if (player.Order == 4) info.PlayerFourBid = bid;
+                if (playerMeta.Order == 1) info.PlayerOneBid = bid;
+                if (playerMeta.Order == 2) info.PlayerTwoBid = bid;
+                if (playerMeta.Order == 3) info.PlayerThreeBid = bid;
+                if (playerMeta.Order == 4) info.PlayerFourBid = bid;
             }
 
             Bid =  info;
@@ -99,7 +98,7 @@ namespace Spades
 
             for (int p = 0; p < 4; p++)
             {
-                var player = Players[p];
+                var playerMeta = Players[p];
 
                 var cards = new List<Card>();
 
@@ -109,7 +108,7 @@ namespace Spades
                     cards.Add(card);
                 }
 
-                player.ReceiveCards(cards);
+                playerMeta.Player.ReceiveCards(cards);
             }
         }
     }

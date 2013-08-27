@@ -2,16 +2,15 @@
 {
     public class Team
     {
-        private int _tricksTaken;
-        private int _totalBid;
+        public PlayerMetadata PlayerOne { get; internal set; }
 
-        public int TricksTaken { get { return _tricksTaken; } }
+        public PlayerMetadata PlayerTwo { get; internal set; }
 
-        public int TotalBid { get { return _totalBid; } }
-
-        public Team(IPlayer playerOne, IPlayer playerTwo)
+        public Team(PlayerMetadata playerOne, PlayerMetadata playerTwo)
         {
-            
+            PlayerOne = playerOne;
+            PlayerTwo = PlayerTwo;
         }
+
     }
 }

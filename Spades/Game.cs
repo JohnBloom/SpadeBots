@@ -7,18 +7,19 @@ namespace Spades
 {
     public class Game
     {
-        private List<IPlayer> _players;
+        private List<PlayerMetadata> _players;
         private Team _teamOne;
         private Team _teamTwo;
         private List<Hand> _hands;
-        private IPlayer _dealer;
+        private PlayerMetadata _dealer;
 
         public ScoreSheet ScoreSheet { get; set; }
         public Deck Deck { get; set; }
-        public IPlayer PlayerOne { get; set; }
-        public IPlayer PlayerTwo { get; set; }
-        public IPlayer PlayerThree { get; set; }
-        public IPlayer PlayerFour { get; set; }
+
+        public PlayerMetadata PlayerOne { get; set; }
+        public PlayerMetadata PlayerTwo { get; set; }
+        public PlayerMetadata PlayerThree { get; set; }
+        public PlayerMetadata PlayerFour { get; set; }
 
         public Game()
         {
@@ -45,15 +46,14 @@ namespace Spades
 
         private void GetPlayers()
         {
-            _players = new List<IPlayer>();
+            _players = new List<PlayerMetadata>();
             _hands = new List<Hand>();
 
             //TODO Use MEF to grab the different instances of players
-            //TODO Dont use Order to determine who is who. This can be mishandled or changed by the player
-            PlayerOne = new DefaultPlayer(1);
-            PlayerTwo = new DefaultPlayer(2);
-            PlayerThree = new DefaultPlayer(3);
-            PlayerFour = new DefaultPlayer(4);
+            PlayerOne = new PlayerMetadata(1, new DefaultPlayer());
+            PlayerTwo = new PlayerMetadata(2, new DefaultPlayer());
+            PlayerThree = new PlayerMetadata(3, new DefaultPlayer());
+            PlayerFour = new PlayerMetadata(4, new DefaultPlayer());
 
             _players.Add(PlayerOne);
             _players.Add(PlayerTwo);

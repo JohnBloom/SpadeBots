@@ -10,7 +10,6 @@ namespace Spades
     public interface IPlayer
     {
         string PlayerName { get; }
-        int Order { get; }
 
         Card PlayCard(Trick currentTrick);
 

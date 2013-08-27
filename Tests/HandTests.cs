@@ -8,18 +8,18 @@ namespace Tests
     [TestFixture] 
     public class HandTests
     {
-        public List<IPlayer> Players { get; set; }
+        public List<PlayerMetadata> Players { get; set; }
         public Deck Deck { get; set; }
 
         [TestFixtureSetUp]
         public void Setup()
         {
-            Players = new List<IPlayer>();
+            Players = new List<PlayerMetadata>();
 
-            Players.Add(new DefaultPlayer(1));
-            Players.Add(new DefaultPlayer(2));
-            Players.Add(new DefaultPlayer(3));
-            Players.Add(new DefaultPlayer(4));
+            Players.Add(new PlayerMetadata(1, new DefaultPlayer()));
+            Players.Add(new PlayerMetadata(1, new DefaultPlayer()));
+            Players.Add(new PlayerMetadata(1, new DefaultPlayer()));
+            Players.Add(new PlayerMetadata(1, new DefaultPlayer()));
 
             Deck = new Deck();
         }

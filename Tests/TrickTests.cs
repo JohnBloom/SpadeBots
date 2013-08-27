@@ -8,23 +8,23 @@ namespace Tests
     [TestFixture] 
     public class TrickTests
     {
-        public IPlayer PlayerOne { get; set; }
-        public IPlayer PlayerTwo { get; set; }
-        public IPlayer PlayerThree { get; set; }
-        public IPlayer PlayerFour { get; set; }
+        public PlayerMetadata PlayerOne { get; set; }
+        public PlayerMetadata PlayerTwo { get; set; }
+        public PlayerMetadata PlayerThree { get; set; }
+        public PlayerMetadata PlayerFour { get; set; }
 
         public Deck Deck { get; set; }
-        public List<IPlayer> Players { get; set; }
+        public List<PlayerMetadata> Players { get; set; }
 
         [TestFixtureSetUp]
         public void Setup()
         {
-            Players = new List<IPlayer>();
+            Players = new List<PlayerMetadata>();
 
-            PlayerOne = new DefaultPlayer(1);
-            PlayerTwo = new DefaultPlayer(2);
-            PlayerThree = new DefaultPlayer(3);
-            PlayerFour = new DefaultPlayer(4);
+            PlayerOne = new PlayerMetadata(1, new DefaultPlayer());
+            PlayerTwo = new PlayerMetadata(2, new DefaultPlayer());
+            PlayerThree = new PlayerMetadata(3, new DefaultPlayer());
+            PlayerFour = new PlayerMetadata(4, new DefaultPlayer());
 
             Players.Add(PlayerOne);
             Players.Add(PlayerTwo);
