@@ -56,6 +56,52 @@ namespace Tests
         }
 
         [Test]
+        public void ScoreHandTenForTwoHundredMadeItTest()
+        {
+            var hand = new Hand(null, null);
+            hand.Bid = new Bid() { PlayerFourBid = 7, PlayerOneBid = 2, PlayerTwoBid = 3, PlayerThreeBid = 1 };
+            hand.TeamOneTrickCount = 3;
+            hand.TeamTwoTrickCount = 10;
+
+            var score = new ScoreSheet();
+            score.ScoreHand(hand);
+
+            Assert.AreEqual(30, score.TeamOnePoints);
+            Assert.AreEqual(200, score.TeamTwoPoints);
+
+        }
+
+        [Test]
+        public void ScoreHandTenForTwoHundredWentSetTest()
+        {
+            var hand = new Hand(null, null);
+            hand.Bid = new Bid() { PlayerFourBid = 7, PlayerOneBid = 2, PlayerTwoBid = 3, PlayerThreeBid = 1 };
+            hand.TeamOneTrickCount = 4;
+            hand.TeamTwoTrickCount = 9;
+
+            var score = new ScoreSheet();
+            score.ScoreHand(hand);
+
+            Assert.AreEqual(30, score.TeamOnePoints);
+            Assert.AreEqual(-200, score.TeamTwoPoints);
+        }
+
+        [Test]
+        public void ScoreHandTenForTwoHundredTookElevenTest()
+        {
+            var hand = new Hand(null, null);
+            hand.Bid = new Bid() { PlayerFourBid = 7, PlayerOneBid = 2, PlayerTwoBid = 3, PlayerThreeBid = 1 };
+            hand.TeamOneTrickCount = 2;
+            hand.TeamTwoTrickCount = 11;
+
+            var score = new ScoreSheet();
+            score.ScoreHand(hand);
+
+            Assert.AreEqual(-30, score.TeamOnePoints);
+            Assert.AreEqual(200, score.TeamTwoPoints);
+        }
+
+        [Test]
         public void CheckForWinner500ExactlyTest()
         {
             var score = new ScoreSheet();

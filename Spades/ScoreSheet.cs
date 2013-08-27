@@ -19,8 +19,8 @@
         public void ScoreHand(Hand hand)
         {
             //TODO: Lots of duplication in this. Try to reduce
-            var teamOnePointsFromHand = (10*hand.Bid.TeamOneTotalBid);
-            var teamTwoPointsFromHand = (10 * hand.Bid.TeamTwoTotalBid);
+            var teamOnePointsFromHand = hand.Bid.TeamOneTotalBid >=10 ? 200 : (10*hand.Bid.TeamOneTotalBid);
+            var teamTwoPointsFromHand = hand.Bid.TeamTwoTotalBid >= 10 ? 200 : (10 * hand.Bid.TeamTwoTotalBid);
 
             if (hand.Bid.TeamOneTotalBid > hand.TeamOneTrickCount)
             {
