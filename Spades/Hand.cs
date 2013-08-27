@@ -62,6 +62,10 @@ namespace Spades
             {
                 var bid = playerMeta.Player.Bid(info);
 
+                //No negative bids and no bids over 13
+                bid = Math.Max(0, bid);
+                bid = Math.Min(13, bid);
+
                 if (playerMeta.Order == 1) info.PlayerOneBid = bid;
                 if (playerMeta.Order == 2) info.PlayerTwoBid = bid;
                 if (playerMeta.Order == 3) info.PlayerThreeBid = bid;

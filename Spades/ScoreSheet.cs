@@ -7,7 +7,7 @@
         
         public int TeamOneBags { get; internal set; }
         public int TeamTwoBags { get; internal set; }
-         
+        
         internal void Clear()
         {
             TeamOneBags = 0;
@@ -19,6 +19,7 @@
         public void ScoreHand(Hand hand)
         {
             //TODO: Lots of duplication in this. Try to reduce
+            //TODO: Implement nill bid
             var teamOnePointsFromHand = hand.Bid.TeamOneTotalBid >=10 ? 200 : (10*hand.Bid.TeamOneTotalBid);
             var teamTwoPointsFromHand = hand.Bid.TeamTwoTotalBid >= 10 ? 200 : (10 * hand.Bid.TeamTwoTotalBid);
 
